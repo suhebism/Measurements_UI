@@ -3,9 +3,19 @@ import { useForm } from "react-hook-form";
 import User from "./User";
 import Measurements from "./Measurements";
 import Remarks from "./Remarks";
+import Gender from "./Gender";
 const Form = () => {
   const [page, setPage] = useState(0);
-  const formTitles = ["Sign Up", "Measurements", "Remarks"];
+  const formTitles = ["Select Gender","user", "Measurements", "Remarks"];
+  const [formData, setFormData] = useState({
+    name:"",
+    mobileNo:"",
+    chest:"",
+    waist:"",
+    hip:"",
+    shoulder:"",
+  });
+
   const {
     register,
     handleSubmit,
@@ -15,11 +25,13 @@ const Form = () => {
 
   const PageDisplay = () => {
     if(page === 0){
-        return <User/>;
+        return <Gender formData={formData} setFormData={setFormData}/>;
     } else if(page === 1){
+        return <User formData={formData} setFormData={setFormData}/>;
+    } else if(page === 2){
         return <Measurements/>;
-    } else{
-        return <Remarks/>;
+    }else{
+      return <Remarks/>
     }
   };
   // console.log(watch("FirstName"));

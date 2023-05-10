@@ -1,12 +1,15 @@
-import React from 'react'
+import React from "react";
 
-const User = () => {
+const User = ({formData, setFormData}) => {
   return (
     <div>
-        <label htmlFor="">Enter Customer Name<input type="text" placeholder='Full Name'/></label>
-        <label htmlFor="">Customer Mobile Number<input type="number" placeholder='Mobile No.'/></label>
+      <input type="text" placeholder="Name" value={formData.name} 
+      onChange={(event) => setFormData({...formData, name: event.target.value })}/>
+      
+      <input type="number" placeholder="Mobile No" value={formData.mobileNo} 
+      onChange={(event) => setFormData({...formData, mobileNo: event.target.value })}/>
     </div>
-  )
-}
+  );
+};
 
 export default User;
