@@ -41,9 +41,9 @@ const Form = () => {
   // console.log(watch("FirstName"));
   return (
     <>
-    <img className="absolute w-32 top-20" src={logo} alt="" />
-    <h1 className="text-black text-2xl absolute top-48 " >{formTitles[page]}</h1>
-    <div className="bg-white fixed  w-80 h-96 min-h-96 flex items-center justify-center shadow-2xl" style={{height:'31rem',borderRadius:'10px'}}>
+    <img className="absolute w-32 top-4" src={logo} alt="" />
+    <h1 className="text-black text-2xl absolute top-24 " >{formTitles[page]}</h1>
+    <div className="bg-white fixed  w-80 h-96 min-h-96 flex items-center justify-center shadow-2xl" style={{height:'28rem',borderRadius:'10px'}}>
       <form onSubmit={handleSubmit(onSubmit)} className="">
         
         <div className="flex ">{PageDisplay()}</div>
