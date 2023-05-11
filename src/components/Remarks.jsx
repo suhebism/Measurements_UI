@@ -1,9 +1,9 @@
 import React from 'react'
 
-const Remarks = () => {
+const Remarks = ({formData, setFormData}) => {
   return (
     <div>
-        <input type="text" placeholder='form' />
+        <input placeholder='notes' value={formData.notes} onChange={(event) => setFormData({...formData, notes: event.target.value })} />
     </div>
   )
 }

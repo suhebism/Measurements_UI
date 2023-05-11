@@ -7,7 +7,7 @@ const User = () => {
     
   return (
     <div>
-        <h1>{gender}</h1>
+       
       <div
         className="gender"
         style={{

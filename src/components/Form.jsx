@@ -4,16 +4,19 @@ import User from "./User";
 import Measurements from "./Measurements";
 import Remarks from "./Remarks";
 import Gender from "./Gender";
+// import './Form.css';
 const Form = () => {
   const [page, setPage] = useState(0);
   const formTitles = ["Select Gender","user", "Measurements", "Remarks"];
   const [formData, setFormData] = useState({
     name:"",
     mobileNo:"",
+    length:'',
+    shoulder:'',
     chest:"",
     waist:"",
     hip:"",
-    shoulder:"",
+    notes:''
   });
 
   const {
@@ -29,14 +32,14 @@ const Form = () => {
     } else if(page === 1){
         return <User formData={formData} setFormData={setFormData}/>;
     } else if(page === 2){
-        return <Measurements/>;
+        return <Measurements formData={formData} setFormData={setFormData}/>;
     }else{
-      return <Remarks/>
+      return <Remarks formData={formData} setFormData={setFormData}/>
     }
   };
   // console.log(watch("FirstName"));
   return (
-    <div>
+    <div className="main">
       <form onSubmit={handleSubmit(onSubmit)}>
         <h1>{formTitles[page]}</h1>
         <div>{PageDisplay()}</div>
@@ -46,20 +49,27 @@ const Form = () => {
             disabled={page === 0}
             onClick={() => {
               setPage((curPage) => curPage - 1);
+              
             }}
           >
             Previous
           </button>
           <button
-            disabled={page === formTitles.length - 1}
+            // disabled={page === formTitles.length - 1}
             onClick={() => {
+              if(page === formTitles.length -1){
+                alert('Form Submitted');
+                console.log(formData);
+                window.location.reload(false);
+              }else{
               setPage((curPage) => curPage + 1);
+              }
             }}
           >
-            Next
+            {page === formTitles.length -1 ? 'submit' : 'Next'}
           </button>
         </div>
-        <input type="submit" />
+        {/* <input type="submit" /> */}
       </form>
     </div>
   );
