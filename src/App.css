@@ -4,7 +4,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  background-image: url('../src/assets/bg.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
+
+/* 
 
 .App-logo {
   height: 40vmin;
@@ -39,4 +45,4 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */

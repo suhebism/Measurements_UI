@@ -4,10 +4,11 @@ import User from "./User";
 import Measurements from "./Measurements";
 import Remarks from "./Remarks";
 import Gender from "./Gender";
+import logo from '../assets/logo.png'
 // import './Form.css';
 const Form = () => {
   const [page, setPage] = useState(0);
-  const formTitles = ["Select Gender","user", "Measurements", "Remarks"];
+  const formTitles = ["Select Gender","User", "Measurements", "Remarks"];
   const [formData, setFormData] = useState({
     name:"",
     mobileNo:"",
@@ -39,28 +40,31 @@ const Form = () => {
   };
   // console.log(watch("FirstName"));
   return (
-    <div className="main">
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <h1>{formTitles[page]}</h1>
-        <div>{PageDisplay()}</div>
+    <>
+    <img className="absolute w-32 top-20" src={logo} alt="" />
+    <h1 className="text-black text-2xl absolute top-48 " >{formTitles[page]}</h1>
+    <div className="bg-white fixed  w-80 h-96 min-h-96 flex items-center justify-center shadow-2xl" style={{height:'31rem',borderRadius:'10px'}}>
+      <form onSubmit={handleSubmit(onSubmit)} className="">
         
-        <div>
+        <div className="flex ">{PageDisplay()}</div>
+        
+        <div className="flex justify-between">
           <button
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded absolute bottom-2 left-4"
             disabled={page === 0}
             onClick={() => {
               setPage((curPage) => curPage - 1);
-              
             }}
           >
             Previous
           </button>
-          <button
+          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded absolute bottom-2 right-4" 
             // disabled={page === formTitles.length - 1}
             onClick={() => {
               if(page === formTitles.length -1){
                 alert('Form Submitted');
                 console.log(formData);
-                window.location.reload(false);
+                // window.location.reload(false);
               }else{
               setPage((curPage) => curPage + 1);
               }
@@ -72,6 +76,7 @@ const Form = () => {
         {/* <input type="submit" /> */}
       </form>
     </div>
+    </>
   );
 };
 

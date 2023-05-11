@@ -6,38 +6,18 @@ const User = () => {
     const [gender, setGender] = useState('')
     
   return (
-    <div>
        
-      <div
-        className="gender"
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            flexDirection: "column",
-          }}
-        >
+      <div className="flex justify-between align-center">
+        <div className="flex-col justify-between align-center" >
           <img src={female} style={{ width: "100px" }} alt="" />
-          <input type="radio" name='gender' value='Female' onChange={(e)=>setGender(e.target.value)}/>
+          <input className="ml-3.5" type="radio" name='gender' value='Female' onChange={(e)=>setGender(e.target.value)}/>
         </div>
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            flexDirection: "column",
-          }}
-        >
+        <div className="flex-col justify-between align-center">
           <img src={male} style={{ width: "105px" }} alt="" />
           <input type="radio" name='gender' value='Male' onChange={(e)=>setGender(e.target.value)} />
         </div>
       </div>
-    </div>
+    
   );
 };
 
